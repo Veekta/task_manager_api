@@ -4,7 +4,7 @@
   "description": "Backend For Task Manager",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "node": "node server.js"
   },
   "author": "Veekta",
   "license": "MIT",
