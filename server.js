@@ -1,6 +1,7 @@
-require("http").createServer(app);
+require("http");
 const express = require("express");
 const app = express();
+require("http").createServer(app);
 
 const MouseMovement = require("./models/trackUser");
 
