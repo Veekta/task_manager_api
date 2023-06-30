@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const mouseMovementSchema = new mongoose.Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   x: Number,
