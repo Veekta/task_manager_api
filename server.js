@@ -1,12 +1,12 @@
-// require("http");
+require("./config/db");
 const express = require("express");
 const app = express();
-// const http = require("http").createServer(app);
+const http = require("http").createServer(app);
 
-// const MouseMovement = require("./models/trackUser");
+const MouseMovement = require("./models/trackUser");
 
 // Initialize Socket.IO
-// const io = require("socket.io")(http);
+const io = require("socket.io")(http);
 
 const cors = require("cors");
 
@@ -20,23 +20,23 @@ const Task = require("./router/task");
 // for accepting post form data
 const bodyParser = require("express").json;
 
-// // Socket.IO connection handler
-// io.on("connection", (socket) => {
-//   // Receive mouse movement data from the client
-//   socket.on("mouseMovement", (data) => {
-//     // Store the received data in the database
-//     const mouseMovement = new MouseMovement(data);
-//     mouseMovement.save();
+// Socket.IO connection handler
+io.on("connection", (socket) => {
+  // Receive mouse movement data from the client
+  socket.on("mouseMovement", (data) => {
+    // Store the received data in the database
+    const mouseMovement = new MouseMovement(data);
+    mouseMovement.save();
 
-//     // Broadcast the data to all connected clients
-//     socket.broadcast.emit("mouseMovement", data);
-//   });
+    // Broadcast the data to all connected clients
+    socket.broadcast.emit("mouseMovement", data);
+  });
 
-//   // Handle disconnection
-//   socket.on("disconnect", () => {
-//     console.log("A client disconnected");
-//   });
-// });
+  // Handle disconnection
+  socket.on("disconnect", () => {
+    console.log("A client disconnected");
+  });
+});
 
 app.use(bodyParser());
 app.use("/user", UserRouter);
