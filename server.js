@@ -1,9 +1,8 @@
+require("http").createServer(app);
 const express = require("express");
 const app = express();
 
 const MouseMovement = require("./models/trackUser");
-
-require("http").createServer(app);
 
 // Initialize Socket.IO
 const io = require("socket.io");
