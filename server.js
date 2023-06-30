@@ -1,10 +1,16 @@
-const app = require("express")();
-const serve = require("http").createServer(app);
-require("./config/db");
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
+
 const MouseMovement = require("./models/trackUser");
 
 // Initialize Socket.IO
-const io = require("socket.io")(serve);
+const io = require("socket.io")(http);
+
+const cors = require("cors");
+
+// Enable Cross-Origin Resource Sharing
+app.use(cors());
 
 const port = process.env.PORT || 5000;
 const UserRouter = require("./router/user");
