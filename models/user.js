@@ -11,6 +11,10 @@ const UserSchema = new Schema({
       ref: "Task",
     },
   ],
+  tracks: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "MouseMovement",
+  },
 });
 
 const User = mongoose.model("User", UserSchema);
