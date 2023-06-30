@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
-const http = require("http").createServer(app);
 
 const MouseMovement = require("./models/trackUser");
 
+require("http").createServer(app);
+
 // Initialize Socket.IO
-const io = require("socket.io")(http);
+const io = require("socket.io");
 
 const cors = require("cors");
 
