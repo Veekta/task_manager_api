@@ -2,7 +2,6 @@ require("http");
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
-const bodyParser = require("body-parser");
 
 const MouseMovement = require("./models/trackUser");
 
@@ -17,6 +16,9 @@ app.use(cors());
 const port = process.env.PORT || 5000;
 const UserRouter = require("./router/user");
 const Task = require("./router/task");
+
+// for accepting post form data
+const bodyParser = require("express").json;
 
 // Socket.IO connection handler
 io.on("connection", (socket) => {
