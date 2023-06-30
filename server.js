@@ -18,9 +18,6 @@ const port = process.env.PORT || 5000;
 const UserRouter = require("./router/user");
 const Task = require("./router/task");
 
-// for accepting post form data
-const bodyParser = require("express").json;
-
 // Socket.IO connection handler
 io.on("connection", (socket) => {
   // Receive mouse movement data from the client
