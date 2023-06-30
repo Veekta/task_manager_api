@@ -1,7 +1,7 @@
-require("./config/db");
-const MouseMovement = require("./models/trackUser");
 const app = require("express")();
 const server = require("http").createServer(app);
+require("./config/db");
+const MouseMovement = require("./models/trackUser");
 
 // Initialize Socket.IO
 const io = require("socket.io")(server);
